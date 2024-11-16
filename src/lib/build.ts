@@ -54,9 +54,8 @@ export const build = async (
 
   const files = await new fdir()
     .withRelativePaths()
-    .exclude(
-      (path) => !config.input.include(path) || config.input.exclude(path),
-    )
+    .filter(config.input.include)
+    .exclude(config.input.exclude)
     .crawl(config.base)
     .withPromise();
 
