@@ -1,13 +1,11 @@
 import { Command } from "@cliffy/command";
 import consola from "consola";
-import { createJiti } from "jiti";
+import fs from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
-import { fileURLToPath } from "node:url";
 import pkg from "../package.json" with { type: "json" };
-import { makeConfigSchema } from "./config";
-
-const jiti = createJiti(import.meta.url);
+import { build } from "./lib/build";
+import { getConfig } from "./lib/config";
 
 export const cmd = new Command()
   .name(pkg.name)
@@ -18,14 +16,20 @@ export const cmd = new Command()
     default: process.cwd(),
   })
   .action(async ({ root }) => {
-    const configFile = path.resolve(root, "app.config");
-    const configFileResolved = fileURLToPath(jiti.esmResolve(configFile));
-    consola.info("Config file found at", configFileResolved);
+    const config = await getConfig({ root });
 
-    consola.info("Loading and parsing config file");
-    const rawConfig = await jiti.import(configFile, { default: true });
-    const configSchema = makeConfigSchema({ root });
-    const parsedConfig = await configSchema.parseAsync(rawConfig);
+    if (config.build.clean) {
+      consola.info("Cleaning", config.build.outDir);
+      await fs.rm(config.build.outDir, { force: true, recursive: true });
+    }
+    await fs.mkdir(config.build.outDir, { recursive: true });
 
-    consola.trace("Resolved config", parsedConfig);
+    await build(config, async ({ file, contents }) => {
+      const outPath = path.resolve(config.build.outDir, file);
+      consola.info("Writing", file);
+      await fs.mkdir(path.dirname(outPath), { recursive: true });
+      await fs.writeFile(outPath, contents);
+    });
+
+    consola.info("Finished writing site at", config.build.outDir);
   });

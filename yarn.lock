@@ -463,6 +463,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/picomatch@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@types/picomatch@npm:3.0.1"
+  checksum: 10c0/4f60d98668030e4a5b3d7dda1e0a6d86056f7e6201f013dcb411249dc9d9d34373d3e8de3b2f0c156be43e2b0da99d30e06a8292282dd5f84b105bf9ff654dec
+  languageName: node
+  linkType: hard
+
 "@types/semver@npm:^7":
   version: 7.5.8
   resolution: "@types/semver@npm:7.5.8"
@@ -1239,6 +1246,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"p-map@npm:^7.0.2":
+  version: 7.0.2
+  resolution: "p-map@npm:7.0.2"
+  checksum: 10c0/e10548036648d1c043153f9997112fe5a7de54a319210238628f8ea22ee36587fd6ee740811f88b60bbf29d932e23ae35df7fced40df477116c84c18e797047e
+  languageName: node
+  linkType: hard
+
 "package-json-from-dist@npm:^1.0.0":
   version: 1.0.1
   resolution: "package-json-from-dist@npm:1.0.1"
@@ -1513,9 +1527,13 @@ __metadata:
     "@cliffy/command": "npm:@jsr/cliffy__command@1.0.0-rc.7"
     "@cprecioso/tsconfig": "npm:^2.0.1"
     "@types/node": "npm:^20.17.6"
+    "@types/picomatch": "npm:^3.0.1"
     "@types/semver": "npm:^7"
     consola: "npm:^3.2.3"
+    fdir: "npm:^6.4.2"
     jiti: "npm:^2.4.0"
+    p-map: "npm:^7.0.2"
+    picomatch: "npm:^4.0.2"
     prettier: "npm:^3.3.3"
     prettier-plugin-organize-imports: "npm:^4.1.0"
     prettier-plugin-pkg: "npm:^0.18.1"
