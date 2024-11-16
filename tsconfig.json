@@ -1,0 +1,4 @@
+{
+  "extends": ["@cprecioso/tsconfig/bundler"],
+  "include": ["src/**/*"]
+}
