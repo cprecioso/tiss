@@ -3,14 +3,13 @@ import consola from "consola";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { build } from "../lib/build";
-import { getConfig } from "../lib/config";
 import { BaseActionCommand } from "./_base";
 
 export class BuildCommand extends BaseActionCommand {
   static paths = [Command.Default, ["build"]];
 
   async execute() {
-    const config = await getConfig({ root: this.root });
+    const config = await this.getConfig();
 
     if (config.build.clean) {
       consola.info("Cleaning", config.build.outDir);

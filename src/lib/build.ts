@@ -66,6 +66,6 @@ export const build = async (
       const entry = await buildFile(config, inName);
       return handler(entry);
     },
-    { concurrency: config.build.concurrency },
+    { concurrency: config.dynamic.concurrency },
   );
 };

@@ -400,6 +400,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:*":
+  version: 22.9.0
+  resolution: "@types/node@npm:22.9.0"
+  dependencies:
+    undici-types: "npm:~6.19.8"
+  checksum: 10c0/3f46cbe0a49bab4ba30494025e4c8a6e699b98ac922857aa1f0209ce11a1313ee46e6808b8f13fe5b8b960a9d7796b77c8d542ad4e9810e85ef897d5593b5d51
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:^20.17.6":
   version: 20.17.6
   resolution: "@types/node@npm:20.17.6"
@@ -420,6 +429,15 @@ __metadata:
   version: 7.5.8
   resolution: "@types/semver@npm:7.5.8"
   checksum: 10c0/8663ff927234d1c5fcc04b33062cb2b9fcfbe0f5f351ed26c4d1e1581657deebd506b41ff7fdf89e787e3d33ce05854bc01686379b89e9c49b564c4cfa988efa
+  languageName: node
+  linkType: hard
+
+"@types/yazl@npm:^2.4.5":
+  version: 2.4.5
+  resolution: "@types/yazl@npm:2.4.5"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 10c0/c5557684b9343bcb89e1842d58de71ad726dea872da5cf4b4a62137726c0fc73399c19d17f6790c426296cd77ebfc36940418b1cae14eeb65fed3cd044016797
   languageName: node
   linkType: hard
 
@@ -499,6 +517,13 @@ __metadata:
   dependencies:
     balanced-match: "npm:^1.0.0"
   checksum: 10c0/b358f2fe060e2d7a87aa015979ecea07f3c37d4018f8d6deb5bd4c229ad3a0384fe6029bb76cd8be63c81e516ee52d1a0673edbe2023d53a5191732ae3c3e49f
+  languageName: node
+  linkType: hard
+
+"buffer-crc32@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "buffer-crc32@npm:1.0.0"
+  checksum: 10c0/8b86e161cee4bb48d5fa622cbae4c18f25e4857e5203b89e23de59e627ab26beb82d9d7999f2b8de02580165f61f83f997beaf02980cdf06affd175b651921ab
   languageName: node
   linkType: hard
 
@@ -1485,6 +1510,7 @@ __metadata:
     "@types/node": "npm:^20.17.6"
     "@types/picomatch": "npm:^3.0.1"
     "@types/semver": "npm:^7"
+    "@types/yazl": "npm:^2.4.5"
     clipanion: "npm:^4.0.0-rc.4"
     consola: "npm:^3.2.3"
     fdir: "npm:^6.4.2"
@@ -1498,6 +1524,7 @@ __metadata:
     semver: "npm:^7.6.3"
     tsup: "npm:^8.3.5"
     typescript: "npm:^5.6.3"
+    yazl: "npm:^3.3.0"
     zod: "npm:^3.23.8"
     zod-validation-error: "npm:^3.4.0"
   bin:
@@ -1772,7 +1799,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici-types@npm:~6.19.2":
+"undici-types@npm:~6.19.2, undici-types@npm:~6.19.8":
   version: 6.19.8
   resolution: "undici-types@npm:6.19.8"
   checksum: 10c0/078afa5990fba110f6824823ace86073b4638f1d5112ee26e790155f481f2a868cc3e0615505b6f4282bdf74a3d8caad715fd809e870c2bb0704e3ea6082f344
@@ -1863,6 +1890,15 @@ __metadata:
   version: 4.0.0
   resolution: "yallist@npm:4.0.0"
   checksum: 10c0/2286b5e8dbfe22204ab66e2ef5cc9bbb1e55dfc873bbe0d568aa943eb255d131890dfd5bf243637273d31119b870f49c18fcde2c6ffbb7a7a092b870dc90625a
+  languageName: node
+  linkType: hard
+
+"yazl@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "yazl@npm:3.3.0"
+  dependencies:
+    buffer-crc32: "npm:^1.0.0"
+  checksum: 10c0/22cde0a692db20a6f06814c4c4ada726f23b23acc843ac27a72966d9039444f658f9af8ec2dd4d56ea5e7cc8857169c7ce41aee88e096407bd6c09a5243a09e5
   languageName: node
   linkType: hard
 

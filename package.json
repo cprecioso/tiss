@@ -24,6 +24,7 @@
     "jiti": "^2.4.0",
     "p-map": "^7.0.2",
     "picomatch": "^4.0.2",
+    "yazl": "^3.3.0",
     "zod": "^3.23.8",
     "zod-validation-error": "^3.4.0"
   },
@@ -32,6 +33,7 @@
     "@types/node": "^20.17.6",
     "@types/picomatch": "^3.0.1",
     "@types/semver": "^7",
+    "@types/yazl": "^2.4.5",
     "prettier": "^3.3.3",
     "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-pkg": "^0.18.1",

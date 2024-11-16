@@ -63,6 +63,7 @@ export const makeConfigSchema = ({ root }: { root: string }) => {
             const jiti = createJiti(import.meta.url);
             return (path: string) => jiti.import(path, { default: true });
           }),
+        concurrency: z.number().int().positive().gt(0).default(4),
       })
       .default({}),
 
@@ -70,7 +71,12 @@ export const makeConfigSchema = ({ root }: { root: string }) => {
       .object({
         clean: z.boolean().default(false),
         outDir: pathLike.default("./dist"),
-        concurrency: z.number().int().positive().gt(0).default(4),
+      })
+      .default({}),
+
+    archive: z
+      .object({
+        outFile: pathLike.default("./archive.zip"),
       })
       .default({}),
   });
