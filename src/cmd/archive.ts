@@ -1,3 +1,4 @@
+import { Command } from "clipanion";
 import consola from "consola";
 import fs from "node:fs";
 import { pipeline } from "node:stream/promises";
@@ -7,6 +8,10 @@ import { BaseActionCommand } from "./_base";
 
 export class ArchiveCommand extends BaseActionCommand {
   static paths = [["archive"]];
+
+  static usage = Command.Usage({
+    description: "Build the website and archive it in a zip",
+  });
 
   async execute() {
     const config = await this.getConfig();

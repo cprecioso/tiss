@@ -6,7 +6,11 @@ import { build } from "../lib/build";
 import { BaseActionCommand } from "./_base";
 
 export class BuildCommand extends BaseActionCommand {
-  static paths = [Command.Default, ["build"]];
+  static paths = [["build"]];
+
+  static usage = Command.Usage({
+    description: "Build the website",
+  });
 
   async execute() {
     const config = await this.getConfig();
