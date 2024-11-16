@@ -5,6 +5,19 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
+"@cliffy/command@npm:@jsr/cliffy__command@1.0.0-rc.7":
+  version: 1.0.0-rc.7
+  resolution: "@jsr/cliffy__command@npm:1.0.0-rc.7::__archiveUrl=https%3A%2F%2Fnpm.jsr.io%2F~%2F11%2F%40jsr%2Fcliffy__command%2F1.0.0-rc.7.tgz"
+  dependencies:
+    "@jsr/cliffy__flags": "npm:1.0.0-rc.7"
+    "@jsr/cliffy__internal": "npm:1.0.0-rc.7"
+    "@jsr/cliffy__table": "npm:1.0.0-rc.7"
+    "@jsr/std__fmt": "npm:~1.0.2"
+    "@jsr/std__text": "npm:~1.0.7"
+  checksum: 10c0/1e95a891f2520662bde64e8c875b3011eb25c3b3661b3a74fc6c6589147a1ab577e6d396486c2fe2fcecdfabba7798f9ce03ec2bd0c5d87fc219db89e2ace7bb
+  languageName: node
+  linkType: hard
+
 "@cprecioso/tsconfig@npm:^2.0.1":
   version: 2.0.1
   resolution: "@cprecioso/tsconfig@npm:2.0.1"
@@ -235,6 +248,47 @@ __metadata:
     "@jridgewell/resolve-uri": "npm:^3.1.0"
     "@jridgewell/sourcemap-codec": "npm:^1.4.14"
   checksum: 10c0/3d1ce6ebc69df9682a5a8896b414c6537e428a1d68b02fcc8363b04284a8ca0df04d0ee3013132252ab14f2527bc13bea6526a912ecb5658f0e39fd2860b4df4
+  languageName: node
+  linkType: hard
+
+"@jsr/cliffy__flags@npm:1.0.0-rc.7":
+  version: 1.0.0-rc.7
+  resolution: "@jsr/cliffy__flags@npm:1.0.0-rc.7::__archiveUrl=https%3A%2F%2Fnpm.jsr.io%2F~%2F11%2F%40jsr%2Fcliffy__flags%2F1.0.0-rc.7.tgz"
+  dependencies:
+    "@jsr/std__text": "npm:~1.0.7"
+  checksum: 10c0/ba3f5efb18d8b2712025e02c842c2001b5a9ea19555718b4bdb6eee1c1878217ffc3a6d5309be2d4662eee9ca9e99dbeb140a4577526f8ea9422152f7e2e23b3
+  languageName: node
+  linkType: hard
+
+"@jsr/cliffy__internal@npm:1.0.0-rc.7":
+  version: 1.0.0-rc.7
+  resolution: "@jsr/cliffy__internal@npm:1.0.0-rc.7::__archiveUrl=https%3A%2F%2Fnpm.jsr.io%2F~%2F11%2F%40jsr%2Fcliffy__internal%2F1.0.0-rc.7.tgz"
+  dependencies:
+    "@jsr/std__fmt": "npm:~1.0.2"
+  checksum: 10c0/56946b2e7f17cde162e5ce68436a9f1da8252d87efa68b2858ddadc9123ac3f045e9a79f9077862f6e420031663137069dcecdea23af5ef67f0d3b34b3571f36
+  languageName: node
+  linkType: hard
+
+"@jsr/cliffy__table@npm:1.0.0-rc.7":
+  version: 1.0.0-rc.7
+  resolution: "@jsr/cliffy__table@npm:1.0.0-rc.7::__archiveUrl=https%3A%2F%2Fnpm.jsr.io%2F~%2F11%2F%40jsr%2Fcliffy__table%2F1.0.0-rc.7.tgz"
+  dependencies:
+    "@jsr/std__fmt": "npm:~1.0.2"
+  checksum: 10c0/0a05018e960ef6e115221d258e99630c5dee3d11df672ab63b66513db28c762cb21cad6cce61d994ccd4ffd380dc2f0d5743a60d2a6bedab84f94db66d6dec73
+  languageName: node
+  linkType: hard
+
+"@jsr/std__fmt@npm:~1.0.2":
+  version: 1.0.3
+  resolution: "@jsr/std__fmt@npm:1.0.3::__archiveUrl=https%3A%2F%2Fnpm.jsr.io%2F~%2F11%2F%40jsr%2Fstd__fmt%2F1.0.3.tgz"
+  checksum: 10c0/4bdb9e01fee11e4ab653f7a0d1d8fcbacb8f00f384798b98ed7ba53d25456ffa580ecb3738a15dd0f540cfb3101c2fd02f44e7752ed4b5cbf07541844d116afe
+  languageName: node
+  linkType: hard
+
+"@jsr/std__text@npm:~1.0.7":
+  version: 1.0.8
+  resolution: "@jsr/std__text@npm:1.0.8::__archiveUrl=https%3A%2F%2Fnpm.jsr.io%2F~%2F11%2F%40jsr%2Fstd__text%2F1.0.8.tgz"
+  checksum: 10c0/49d4c2ab8a1210201ffc258629ebb27b7d91830ec1a9872bdf6c5edfe629f0f2b8edb13eec195673fb4ac06f696c541fa36fa5955832f363ad891809bbfc4d7e
   languageName: node
   linkType: hard
 
@@ -926,6 +980,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jiti@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "jiti@npm:2.4.0"
+  bin:
+    jiti: lib/jiti-cli.mjs
+  checksum: 10c0/f97365a83169e0544b0a6e7f415f1ee69ca9c0bdd55e336035490b4b7a6ff99b63b9df89c70babfc49e924247dfbdc730f9eb0c5ed4771d3db989ac70e49bf18
+  languageName: node
+  linkType: hard
+
 "joycon@npm:^3.1.1":
   version: 3.1.1
   resolution: "joycon@npm:3.1.1"
@@ -1447,9 +1510,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "shortwave@workspace:."
   dependencies:
+    "@cliffy/command": "npm:@jsr/cliffy__command@1.0.0-rc.7"
     "@cprecioso/tsconfig": "npm:^2.0.1"
     "@types/node": "npm:^20.17.6"
     "@types/semver": "npm:^7"
+    consola: "npm:^3.2.3"
+    jiti: "npm:^2.4.0"
     prettier: "npm:^3.3.3"
     prettier-plugin-organize-imports: "npm:^4.1.0"
     prettier-plugin-pkg: "npm:^0.18.1"
@@ -1457,6 +1523,10 @@ __metadata:
     semver: "npm:^7.6.3"
     tsup: "npm:^8.3.5"
     typescript: "npm:^5.6.3"
+    zod: "npm:^3.23.8"
+    zod-validation-error: "npm:^3.4.0"
+  bin:
+    shortwave: ./dist/bin.js
   languageName: unknown
   linkType: soft
 
@@ -1811,5 +1881,21 @@ __metadata:
   version: 4.0.0
   resolution: "yallist@npm:4.0.0"
   checksum: 10c0/2286b5e8dbfe22204ab66e2ef5cc9bbb1e55dfc873bbe0d568aa943eb255d131890dfd5bf243637273d31119b870f49c18fcde2c6ffbb7a7a092b870dc90625a
+  languageName: node
+  linkType: hard
+
+"zod-validation-error@npm:^3.4.0":
+  version: 3.4.0
+  resolution: "zod-validation-error@npm:3.4.0"
+  peerDependencies:
+    zod: ^3.18.0
+  checksum: 10c0/aaadb0e65c834aacb12fa088663d52d9f4224b5fe6958f09b039f4ab74145fda381c8a7d470bfddf7ddd9bbb5fdfbb52739cd66958ce6d388c256a44094d1fba
+  languageName: node
+  linkType: hard
+
+"zod@npm:^3.23.8":
+  version: 3.23.8
+  resolution: "zod@npm:3.23.8"
+  checksum: 10c0/8f14c87d6b1b53c944c25ce7a28616896319d95bc46a9660fe441adc0ed0a81253b02b5abdaeffedbeb23bdd25a0bf1c29d2c12dd919aef6447652dd295e3e69
   languageName: node
   linkType: hard

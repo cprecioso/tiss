@@ -5,7 +5,7 @@ import { defineConfig } from "tsup";
 const NODE_MAJOR = semver.parse(versions.node);
 
 export default defineConfig({
-  entry: ["./src/index.ts"],
+  entry: ["./src/lib.ts", "./src/bin.ts"],
   outDir: "./dist",
   clean: true,
 
