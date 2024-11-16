@@ -18,7 +18,7 @@
     "watch": "tsup --watch"
   },
   "dependencies": {
-    "@cliffy/command": "npm:@jsr/cliffy__command@1.0.0-rc.7",
+    "clipanion": "^4.0.0-rc.4",
     "consola": "^3.2.3",
     "fdir": "^6.4.2",
     "jiti": "^2.4.0",

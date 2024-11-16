@@ -1,28 +1,21 @@
-import { Command } from "@cliffy/command";
+import { Command } from "clipanion";
 import consola from "consola";
 import fs from "node:fs/promises";
 import path from "node:path";
-import process from "node:process";
-import pkg from "../package.json" with { type: "json" };
-import { build } from "./lib/build";
-import { getConfig } from "./lib/config";
+import { build } from "../lib/build";
+import { getConfig } from "../lib/config";
+import { BaseActionCommand } from "./_base";
 
-export const cmd = new Command()
-  .name(pkg.name)
-  .version(pkg.version)
+export class BuildCommand extends BaseActionCommand {
+  static paths = [Command.Default, ["build"]];
 
-  .command("build")
-  .option("-r,--root <path:file>", "Root path with the config file", {
-    default: process.cwd(),
-  })
-  .action(async ({ root }) => {
-    const config = await getConfig({ root });
+  async execute() {
+    const config = await getConfig({ root: this.root });
 
     if (config.build.clean) {
       consola.info("Cleaning", config.build.outDir);
       await fs.rm(config.build.outDir, { force: true, recursive: true });
     }
-    await fs.mkdir(config.build.outDir, { recursive: true });
 
     await build(config, async ({ file, contents }) => {
       const outPath = path.resolve(config.build.outDir, file);
@@ -32,4 +25,5 @@ export const cmd = new Command()
     });
 
     consola.info("Finished writing site at", config.build.outDir);
-  });
+  }
+}

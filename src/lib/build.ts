@@ -20,8 +20,6 @@ export const buildFile = async (
 
     const handler = await config.dynamic.importer(inputPath);
 
-    console.log({ file, handler });
-
     const result = typeof handler === "function" ? await handler() : handler;
 
     if (typeof result === "string") {

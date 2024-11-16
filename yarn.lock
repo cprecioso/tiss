@@ -5,19 +5,6 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@cliffy/command@npm:@jsr/cliffy__command@1.0.0-rc.7":
-  version: 1.0.0-rc.7
-  resolution: "@jsr/cliffy__command@npm:1.0.0-rc.7::__archiveUrl=https%3A%2F%2Fnpm.jsr.io%2F~%2F11%2F%40jsr%2Fcliffy__command%2F1.0.0-rc.7.tgz"
-  dependencies:
-    "@jsr/cliffy__flags": "npm:1.0.0-rc.7"
-    "@jsr/cliffy__internal": "npm:1.0.0-rc.7"
-    "@jsr/cliffy__table": "npm:1.0.0-rc.7"
-    "@jsr/std__fmt": "npm:~1.0.2"
-    "@jsr/std__text": "npm:~1.0.7"
-  checksum: 10c0/1e95a891f2520662bde64e8c875b3011eb25c3b3661b3a74fc6c6589147a1ab577e6d396486c2fe2fcecdfabba7798f9ce03ec2bd0c5d87fc219db89e2ace7bb
-  languageName: node
-  linkType: hard
-
 "@cprecioso/tsconfig@npm:^2.0.1":
   version: 2.0.1
   resolution: "@cprecioso/tsconfig@npm:2.0.1"
@@ -248,47 +235,6 @@ __metadata:
     "@jridgewell/resolve-uri": "npm:^3.1.0"
     "@jridgewell/sourcemap-codec": "npm:^1.4.14"
   checksum: 10c0/3d1ce6ebc69df9682a5a8896b414c6537e428a1d68b02fcc8363b04284a8ca0df04d0ee3013132252ab14f2527bc13bea6526a912ecb5658f0e39fd2860b4df4
-  languageName: node
-  linkType: hard
-
-"@jsr/cliffy__flags@npm:1.0.0-rc.7":
-  version: 1.0.0-rc.7
-  resolution: "@jsr/cliffy__flags@npm:1.0.0-rc.7::__archiveUrl=https%3A%2F%2Fnpm.jsr.io%2F~%2F11%2F%40jsr%2Fcliffy__flags%2F1.0.0-rc.7.tgz"
-  dependencies:
-    "@jsr/std__text": "npm:~1.0.7"
-  checksum: 10c0/ba3f5efb18d8b2712025e02c842c2001b5a9ea19555718b4bdb6eee1c1878217ffc3a6d5309be2d4662eee9ca9e99dbeb140a4577526f8ea9422152f7e2e23b3
-  languageName: node
-  linkType: hard
-
-"@jsr/cliffy__internal@npm:1.0.0-rc.7":
-  version: 1.0.0-rc.7
-  resolution: "@jsr/cliffy__internal@npm:1.0.0-rc.7::__archiveUrl=https%3A%2F%2Fnpm.jsr.io%2F~%2F11%2F%40jsr%2Fcliffy__internal%2F1.0.0-rc.7.tgz"
-  dependencies:
-    "@jsr/std__fmt": "npm:~1.0.2"
-  checksum: 10c0/56946b2e7f17cde162e5ce68436a9f1da8252d87efa68b2858ddadc9123ac3f045e9a79f9077862f6e420031663137069dcecdea23af5ef67f0d3b34b3571f36
-  languageName: node
-  linkType: hard
-
-"@jsr/cliffy__table@npm:1.0.0-rc.7":
-  version: 1.0.0-rc.7
-  resolution: "@jsr/cliffy__table@npm:1.0.0-rc.7::__archiveUrl=https%3A%2F%2Fnpm.jsr.io%2F~%2F11%2F%40jsr%2Fcliffy__table%2F1.0.0-rc.7.tgz"
-  dependencies:
-    "@jsr/std__fmt": "npm:~1.0.2"
-  checksum: 10c0/0a05018e960ef6e115221d258e99630c5dee3d11df672ab63b66513db28c762cb21cad6cce61d994ccd4ffd380dc2f0d5743a60d2a6bedab84f94db66d6dec73
-  languageName: node
-  linkType: hard
-
-"@jsr/std__fmt@npm:~1.0.2":
-  version: 1.0.3
-  resolution: "@jsr/std__fmt@npm:1.0.3::__archiveUrl=https%3A%2F%2Fnpm.jsr.io%2F~%2F11%2F%40jsr%2Fstd__fmt%2F1.0.3.tgz"
-  checksum: 10c0/4bdb9e01fee11e4ab653f7a0d1d8fcbacb8f00f384798b98ed7ba53d25456ffa580ecb3738a15dd0f540cfb3101c2fd02f44e7752ed4b5cbf07541844d116afe
-  languageName: node
-  linkType: hard
-
-"@jsr/std__text@npm:~1.0.7":
-  version: 1.0.8
-  resolution: "@jsr/std__text@npm:1.0.8::__archiveUrl=https%3A%2F%2Fnpm.jsr.io%2F~%2F11%2F%40jsr%2Fstd__text%2F1.0.8.tgz"
-  checksum: 10c0/49d4c2ab8a1210201ffc258629ebb27b7d91830ec1a9872bdf6c5edfe629f0f2b8edb13eec195673fb4ac06f696c541fa36fa5955832f363ad891809bbfc4d7e
   languageName: node
   linkType: hard
 
@@ -614,6 +560,17 @@ __metadata:
   version: 2.2.0
   resolution: "clean-stack@npm:2.2.0"
   checksum: 10c0/1f90262d5f6230a17e27d0c190b09d47ebe7efdd76a03b5a1127863f7b3c9aec4c3e6c8bb3a7bbf81d553d56a1fd35728f5a8ef4c63f867ac8d690109742a8c1
+  languageName: node
+  linkType: hard
+
+"clipanion@npm:^4.0.0-rc.4":
+  version: 4.0.0-rc.4
+  resolution: "clipanion@npm:4.0.0-rc.4"
+  dependencies:
+    typanion: "npm:^3.8.0"
+  peerDependencies:
+    typanion: "*"
+  checksum: 10c0/047b415b59a5e9777d00690fba563ccc850eca6bf27790a88d1deea3ecc8a89840ae9aed554ff284cc698a9f3f20256e43c25ff4a7c4c90a71e5e7d9dca61dd1
   languageName: node
   linkType: hard
 
@@ -1524,11 +1481,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "shortwave@workspace:."
   dependencies:
-    "@cliffy/command": "npm:@jsr/cliffy__command@1.0.0-rc.7"
     "@cprecioso/tsconfig": "npm:^2.0.1"
     "@types/node": "npm:^20.17.6"
     "@types/picomatch": "npm:^3.0.1"
     "@types/semver": "npm:^7"
+    clipanion: "npm:^4.0.0-rc.4"
     consola: "npm:^3.2.3"
     fdir: "npm:^6.4.2"
     jiti: "npm:^2.4.0"
@@ -1785,6 +1742,13 @@ __metadata:
     tsup: dist/cli-default.js
     tsup-node: dist/cli-node.js
   checksum: 10c0/7794953cbc784b7c8f14c4898d36a293b815b528d3098c2416aeaa2b4775dc477132cd12f75f6d32737dfd15ba10139c73f7039045352f2ba1ea7e5fe6fe3773
+  languageName: node
+  linkType: hard
+
+"typanion@npm:^3.8.0":
+  version: 3.14.0
+  resolution: "typanion@npm:3.14.0"
+  checksum: 10c0/8b03b19844e6955bfd906c31dc781bae6d7f1fb3ce4fe24b7501557013d4889ae5cefe671dafe98d87ead0adceb8afcb8bc16df7dc0bd2b7331bac96f3a7cae2
   languageName: node
   linkType: hard
 
