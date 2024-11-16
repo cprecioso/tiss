@@ -1,7 +1,7 @@
 import { Command } from "clipanion";
 import consola from "consola";
 import fs from "node:fs/promises";
-import path from "node:path";
+import pathUtils from "node:path";
 import { build } from "../lib/build";
 import { BaseActionCommand } from "./_base";
 
@@ -20,10 +20,10 @@ export class BuildCommand extends BaseActionCommand {
       await fs.rm(config.build.outDir, { force: true, recursive: true });
     }
 
-    await build(config, async ({ file, contents }) => {
-      const outPath = path.resolve(config.build.outDir, file);
-      consola.info("Writing", file);
-      await fs.mkdir(path.dirname(outPath), { recursive: true });
+    await build(config, async ({ path, contents }) => {
+      const outPath = pathUtils.resolve(config.build.outDir, path);
+      consola.info("Writing", path);
+      await fs.mkdir(pathUtils.dirname(outPath), { recursive: true });
       await fs.writeFile(outPath, contents);
     });
 

@@ -18,12 +18,11 @@ export class ArchiveCommand extends BaseActionCommand {
 
     const zip = new yazl.ZipFile();
 
-    await build(config, async ({ file, contents }) => {
-      consola.info("Archiving", file);
+    await build(config, async ({ path, contents }) => {
+      consola.info("Archiving", path);
       zip.addBuffer(
         Buffer.from(contents.buffer, contents.byteOffset, contents.byteLength),
-        file,
-        {},
+        path,
       );
     });
 
