@@ -31,7 +31,7 @@ export const makeConfigSchema = ({ root }: { root: string }) => {
     .pipe(matcherFn);
 
   return z.object({
-    base: pathLike.default("."),
+    base: pathLike.default("./src"),
 
     input: z
       .object({
@@ -69,13 +69,14 @@ export const makeConfigSchema = ({ root }: { root: string }) => {
 
     build: z
       .object({
+        outDir: pathLike.default("./public"),
         clean: z.boolean().default(false),
-        outDir: pathLike.default("./dist"),
       })
       .default({}),
 
     archive: z
       .object({
+        format: z.enum(["zip"]).default("zip"),
         outFile: pathLike.default("./archive.zip"),
       })
       .default({}),
