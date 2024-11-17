@@ -2,6 +2,17 @@
   "name": "tiss",
   "version": "1.0.0",
   "type": "module",
+  "description": "A bare-bones static site generator",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cprecioso/tiss.git"
+  },
+  "homepage": "https://github.com/cprecioso/tiss#readme",
+  "bugs": {
+    "url": "https://github.com/cprecioso/tiss/issues"
+  },
+  "author": "Carlos Precioso <github@precioso.design>",
+  "license": "MIT",
   "packageManager": "yarn@4.5.1",
   "bin": "./dist/bin.js",
   "main": "./dist/lib.js",
