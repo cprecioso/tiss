@@ -425,7 +425,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/semver@npm:^7":
+"@types/semver@npm:^7.5.8":
   version: 7.5.8
   resolution: "@types/semver@npm:7.5.8"
   checksum: 10c0/8663ff927234d1c5fcc04b33062cb2b9fcfbe0f5f351ed26c4d1e1581657deebd506b41ff7fdf89e787e3d33ce05854bc01686379b89e9c49b564c4cfa988efa
@@ -1516,7 +1516,7 @@ __metadata:
     "@cprecioso/tsconfig": "npm:^2.0.1"
     "@types/node": "npm:^20.17.6"
     "@types/picomatch": "npm:^3.0.1"
-    "@types/semver": "npm:^7"
+    "@types/semver": "npm:^7.5.8"
     "@types/yazl": "npm:^2.4.5"
     clipanion: "npm:^4.0.0-rc.4"
     consola: "npm:^3.2.3"
