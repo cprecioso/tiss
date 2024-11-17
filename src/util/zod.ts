@@ -9,10 +9,16 @@ export const readableStreamSchema = z.custom<Readable | NodeJS.ReadableStream>(
 );
 
 export const maybeArray = <S extends z.ZodTypeAny>(schema: S) =>
-  z.union([z.array(schema), schema.transform((v) => [v])]);
+  z.union([z.array(schema), schema.transform<z.output<S>[]>((v) => [v])]);
 
 export const maybePromise = <S extends z.ZodTypeAny>(schema: S) =>
-  z.union([z.promise(schema), schema.transform((v) => Promise.resolve(v))]);
+  z.union([
+    z.promise(schema),
+    schema.transform<Promise<z.output<S>>>((v) => Promise.resolve(v)),
+  ]);
 
-export const maybeFunction = <S extends z.ZodTypeAny>(schema: S) =>
-  z.union([z.function(z.tuple([]), schema), schema.transform((v) => () => v)]);
+export const maybeThunk = <S extends z.ZodTypeAny>(schema: S) =>
+  z.union([
+    z.function(z.tuple([]), schema),
+    schema.transform<() => z.output<S>>((v) => () => v),
+  ]);

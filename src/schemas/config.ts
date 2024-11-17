@@ -18,15 +18,11 @@ export const makeConfigSchema = ({ root }: { root: string }) => {
 
   const matcherFn = z.function(z.tuple([z.string()]), z.boolean());
 
-  const matcherLike = z
-    .union([
-      maybeArray(z.string()).transform((globs) => pm(globs, { cwd: root })),
-      z
-        .instanceof(RegExp)
-        .transform((regex) => (str: string) => regex.test(str)),
-      matcherFn,
-    ])
-    .pipe(matcherFn);
+  const matcherLike = z.union([
+    maybeArray(z.string()).transform((globs) => pm(globs, { cwd: root })),
+    z.instanceof(RegExp).transform((regex) => (str: string) => regex.test(str)),
+    matcherFn,
+  ]);
 
   return z
     .object({

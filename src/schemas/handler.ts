@@ -3,8 +3,8 @@ import * as z from "zod";
 import { someBufferSchema, toNodeBuffer } from "../util/buf";
 import {
   jsonSchema,
-  maybeFunction,
   maybePromise,
+  maybeThunk,
   readableStreamSchema,
 } from "../util/zod";
 
@@ -15,7 +15,10 @@ export const handlerResultSchema = z.union([
   jsonSchema.transform((v) => Buffer.from(`${JSON.stringify(v)}\n`)),
 ]);
 
-export const handlerSchema = maybeFunction(maybePromise(handlerResultSchema));
+export type HandlerResult = z.output<typeof handlerResultSchema>;
+export type HandlerResultInput = z.input<typeof handlerResultSchema>;
+
+export const handlerSchema = maybeThunk(maybePromise(handlerResultSchema));
 
 export type Handler = z.output<typeof handlerSchema>;
 export type HandlerInput = z.input<typeof handlerSchema>;
