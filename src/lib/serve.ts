@@ -32,7 +32,7 @@ export const createServer = (config: Config, entries: readonly Entry[]) => {
     }
 
     const { contents } = await getEntryContent(config, entry);
-    const mimetype = lookupMimeType(pathname);
+    const mimetype = lookupMimeType(entry.path);
 
     if (mimetype) res.setHeader("Content-Type", mimetype);
     res.write(contents);
