@@ -21,13 +21,8 @@ export class ArchiveCommand extends BaseActionCommand {
     await build(config, async ({ path }, contents) => {
       consola.info("Archiving", path);
 
-      if (contents instanceof Uint8Array) {
-        const buf = Buffer.from(
-          contents.buffer,
-          contents.byteOffset,
-          contents.byteLength,
-        );
-        zip.addBuffer(buf, path);
+      if (Buffer.isBuffer(contents)) {
+        zip.addBuffer(contents, path);
       } else {
         zip.addReadStream(contents, path);
       }

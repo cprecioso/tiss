@@ -1,9 +1,10 @@
 import consola from "consola";
 import { fdir } from "fdir";
-import fs from "node:fs/promises";
+import { createReadStream } from "node:fs";
 import pathUtils from "node:path";
 import pMap from "p-map";
 import { Config } from "../schemas/config";
+import { isSomeBuffer, toNodeBuffer } from "../util/buf";
 
 export interface Entry {
   path: string;
@@ -11,7 +12,7 @@ export interface Entry {
   inputFile: string;
 }
 
-export type Contents = Uint8Array | NodeJS.ReadableStream;
+export type Contents = Buffer | NodeJS.ReadableStream;
 
 export const findEntries = async (config: Config): Promise<Entry[]> => {
   consola.info("Crawling", config.base);
@@ -48,15 +49,11 @@ export const getContents = async (
 
     const result = typeof handler === "function" ? await handler() : handler;
 
-    if (typeof result === "string") {
-      return new TextEncoder().encode(result);
-    } else if (result instanceof Uint8Array) {
-      return result;
-    } else {
-      return new TextEncoder().encode(`${JSON.stringify(result)}\n`);
-    }
+    if (typeof result === "string") return Buffer.from(result);
+    else if (isSomeBuffer(result)) return toNodeBuffer(result);
+    else return Buffer.from(`${JSON.stringify(result)}\n`);
   } else {
-    return await fs.readFile(entry.inputFile);
+    return createReadStream(entry.inputFile);
   }
 };
 

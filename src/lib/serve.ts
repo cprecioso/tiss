@@ -37,7 +37,7 @@ export const createServer = (config: Config, entries: readonly Entry[]) => {
 
     if (mimetype) res.setHeader("Content-Type", mimetype);
 
-    if (contents instanceof Uint8Array) {
+    if (Buffer.isBuffer(contents)) {
       res.write(contents);
       res.end();
     } else {

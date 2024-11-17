@@ -26,7 +26,7 @@ export class BuildCommand extends BaseActionCommand {
       const outPath = pathUtils.resolve(config.build.outDir, path);
       consola.info("Writing", path);
       await fs.mkdir(pathUtils.dirname(outPath), { recursive: true });
-      if (contents instanceof Uint8Array) {
+      if (Buffer.isBuffer(contents)) {
         await fs.writeFile(outPath, contents);
       } else {
         await pipeline(contents, createWriteStream(outPath));
