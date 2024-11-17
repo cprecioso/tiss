@@ -1149,6 +1149,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mrmime@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "mrmime@npm:2.0.0"
+  checksum: 10c0/312b35ed288986aec90955410b21ed7427fd1e4ee318cb5fc18765c8d029eeded9444faa46589e5b1ed6b35fb2054a802ac8dcb917ddf6b3e189cb3bf11a965c
+  languageName: node
+  linkType: hard
+
 "ms@npm:^2.1.3":
   version: 2.1.3
   resolution: "ms@npm:2.1.3"
@@ -1515,6 +1522,7 @@ __metadata:
     consola: "npm:^3.2.3"
     fdir: "npm:^6.4.2"
     jiti: "npm:^2.4.0"
+    mrmime: "npm:^2.0.0"
     p-map: "npm:^7.0.2"
     picomatch: "npm:^4.0.2"
     prettier: "npm:^3.3.3"
@@ -1524,6 +1532,7 @@ __metadata:
     semver: "npm:^7.6.3"
     tsup: "npm:^8.3.5"
     typescript: "npm:^5.6.3"
+    ufo: "npm:^1.5.4"
     yazl: "npm:^3.3.0"
     zod: "npm:^3.23.8"
     zod-validation-error: "npm:^3.4.0"
@@ -1796,6 +1805,13 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 10c0/7c9d2e07c81226d60435939618c91ec2ff0b75fbfa106eec3430f0fcf93a584bc6c73176676f532d78c3594fe28a54b36eb40b3d75593071a7ec91301533ace7
+  languageName: node
+  linkType: hard
+
+"ufo@npm:^1.5.4":
+  version: 1.5.4
+  resolution: "ufo@npm:1.5.4"
+  checksum: 10c0/b5dc4dc435c49c9ef8890f1b280a19ee4d0954d1d6f9ab66ce62ce64dd04c7be476781531f952a07c678d51638d02ad4b98e16237be29149295b0f7c09cda765
   languageName: node
   linkType: hard
 
