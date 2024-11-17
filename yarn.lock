@@ -1509,38 +1509,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shortwave@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "shortwave@workspace:."
-  dependencies:
-    "@cprecioso/tsconfig": "npm:^2.0.1"
-    "@types/node": "npm:^20.17.6"
-    "@types/picomatch": "npm:^3.0.1"
-    "@types/semver": "npm:^7.5.8"
-    "@types/yazl": "npm:^2.4.5"
-    clipanion: "npm:^4.0.0-rc.4"
-    consola: "npm:^3.2.3"
-    fdir: "npm:^6.4.2"
-    jiti: "npm:^2.4.0"
-    mrmime: "npm:^2.0.0"
-    p-map: "npm:^7.0.2"
-    picomatch: "npm:^4.0.2"
-    prettier: "npm:^3.3.3"
-    prettier-plugin-organize-imports: "npm:^4.1.0"
-    prettier-plugin-pkg: "npm:^0.18.1"
-    prettier-plugin-sh: "npm:^0.14.0"
-    semver: "npm:^7.6.3"
-    tsup: "npm:^8.3.5"
-    typescript: "npm:^5.6.3"
-    ufo: "npm:^1.5.4"
-    yazl: "npm:^3.3.0"
-    zod: "npm:^3.23.8"
-    zod-validation-error: "npm:^3.4.0"
-  bin:
-    shortwave: ./dist/bin.js
-  languageName: unknown
-  linkType: soft
-
 "signal-exit@npm:^4.0.1":
   version: 4.1.0
   resolution: "signal-exit@npm:4.1.0"
@@ -1707,6 +1675,38 @@ __metadata:
   checksum: 10c0/ce946135d39b8c0e394e488ad59f4092e8c4ecd675ef1bcd4585c47de1b325e61ec6adfbfbe20c3c2bfa6fd674c5b06de2a2e65c433f752ae170aff11793e5ef
   languageName: node
   linkType: hard
+
+"tiss@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "tiss@workspace:."
+  dependencies:
+    "@cprecioso/tsconfig": "npm:^2.0.1"
+    "@types/node": "npm:^20.17.6"
+    "@types/picomatch": "npm:^3.0.1"
+    "@types/semver": "npm:^7.5.8"
+    "@types/yazl": "npm:^2.4.5"
+    clipanion: "npm:^4.0.0-rc.4"
+    consola: "npm:^3.2.3"
+    fdir: "npm:^6.4.2"
+    jiti: "npm:^2.4.0"
+    mrmime: "npm:^2.0.0"
+    p-map: "npm:^7.0.2"
+    picomatch: "npm:^4.0.2"
+    prettier: "npm:^3.3.3"
+    prettier-plugin-organize-imports: "npm:^4.1.0"
+    prettier-plugin-pkg: "npm:^0.18.1"
+    prettier-plugin-sh: "npm:^0.14.0"
+    semver: "npm:^7.6.3"
+    tsup: "npm:^8.3.5"
+    typescript: "npm:^5.6.3"
+    ufo: "npm:^1.5.4"
+    yazl: "npm:^3.3.0"
+    zod: "npm:^3.23.8"
+    zod-validation-error: "npm:^3.4.0"
+  bin:
+    tiss: ./dist/bin.js
+  languageName: unknown
+  linkType: soft
 
 "tr46@npm:^1.0.1":
   version: 1.0.1
