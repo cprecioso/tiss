@@ -11,7 +11,7 @@ export interface Entry {
   inputFile: string;
 }
 
-export type Contents = Uint8Array;
+export type Contents = Uint8Array | NodeJS.ReadableStream;
 
 export const findEntries = async (config: Config): Promise<Entry[]> => {
   consola.info("Crawling", config.base);

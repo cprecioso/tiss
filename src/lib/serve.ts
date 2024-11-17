@@ -1,5 +1,6 @@
 import { lookup as lookupMimeType } from "mrmime";
 import { createServer as nodeCreateServer } from "node:http";
+import { pipeline } from "node:stream/promises";
 import { joinURL, parsePath as parseUrlPath } from "ufo";
 import { Config } from "../schemas/config";
 import { Entry, getContents } from "./build";
@@ -35,8 +36,13 @@ export const createServer = (config: Config, entries: readonly Entry[]) => {
     const mimetype = lookupMimeType(entry.path);
 
     if (mimetype) res.setHeader("Content-Type", mimetype);
-    res.write(contents);
-    res.end();
+
+    if (contents instanceof Uint8Array) {
+      res.write(contents);
+      res.end();
+    } else {
+      await pipeline(contents, res);
+    }
   });
 
   return server;

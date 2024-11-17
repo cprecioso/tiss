@@ -1,7 +1,9 @@
 import { Command } from "clipanion";
 import consola from "consola";
+import { createWriteStream } from "node:fs";
 import fs from "node:fs/promises";
 import pathUtils from "node:path";
+import { pipeline } from "node:stream/promises";
 import { build } from "../lib/build";
 import { BaseActionCommand } from "./_base";
 
@@ -24,7 +26,11 @@ export class BuildCommand extends BaseActionCommand {
       const outPath = pathUtils.resolve(config.build.outDir, path);
       consola.info("Writing", path);
       await fs.mkdir(pathUtils.dirname(outPath), { recursive: true });
-      await fs.writeFile(outPath, contents);
+      if (contents instanceof Uint8Array) {
+        await fs.writeFile(outPath, contents);
+      } else {
+        await pipeline(contents, createWriteStream(outPath));
+      }
     });
 
     consola.info("Finished writing site at", config.build.outDir);
