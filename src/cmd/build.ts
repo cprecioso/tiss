@@ -20,7 +20,7 @@ export class BuildCommand extends BaseActionCommand {
       await fs.rm(config.build.outDir, { force: true, recursive: true });
     }
 
-    await build(config, async ({ path, contents }) => {
+    await build(config, async ({ path }, contents) => {
       const outPath = pathUtils.resolve(config.build.outDir, path);
       consola.info("Writing", path);
       await fs.mkdir(pathUtils.dirname(outPath), { recursive: true });

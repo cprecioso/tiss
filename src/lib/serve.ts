@@ -2,7 +2,7 @@ import { lookup as lookupMimeType } from "mrmime";
 import { createServer as nodeCreateServer } from "node:http";
 import { joinURL, parsePath as parseUrlPath } from "ufo";
 import { Config } from "../schemas/config";
-import { Entry, getEntryContent } from "./build";
+import { Entry, getContents } from "./build";
 
 export const createServer = (config: Config, entries: readonly Entry[]) => {
   const entriesByPath = new Map(
@@ -31,7 +31,7 @@ export const createServer = (config: Config, entries: readonly Entry[]) => {
       return;
     }
 
-    const { contents } = await getEntryContent(config, entry);
+    const contents = await getContents(config, entry);
     const mimetype = lookupMimeType(entry.path);
 
     if (mimetype) res.setHeader("Content-Type", mimetype);

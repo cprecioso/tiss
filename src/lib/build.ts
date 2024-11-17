@@ -11,9 +11,7 @@ export interface Entry {
   inputFile: string;
 }
 
-export interface EntryWithContent extends Entry {
-  contents: Uint8Array;
-}
+export type Contents = Uint8Array;
 
 export const findEntries = async (config: Config): Promise<Entry[]> => {
   consola.info("Crawling", config.base);
@@ -39,13 +37,11 @@ export const findEntries = async (config: Config): Promise<Entry[]> => {
   });
 };
 
-export const getEntryContent = async (
+export const getContents = async (
   config: Config,
   entry: Entry,
-): Promise<EntryWithContent> => {
+): Promise<Contents> => {
   consola.info("Processing file", entry.path);
-
-  const filename = pathUtils.basename(entry.path);
 
   if (entry.isDynamic) {
     const handler = await config.dynamic.importer(entry.inputFile);
@@ -53,32 +49,20 @@ export const getEntryContent = async (
     const result = typeof handler === "function" ? await handler() : handler;
 
     if (typeof result === "string") {
-      return {
-        ...entry,
-        contents: new TextEncoder().encode(result),
-      };
+      return new TextEncoder().encode(result);
     } else if (result instanceof Uint8Array) {
-      return {
-        ...entry,
-        contents: result,
-      };
+      return result;
     } else {
-      return {
-        ...entry,
-        contents: new TextEncoder().encode(`${JSON.stringify(result)}\n`),
-      };
+      return new TextEncoder().encode(`${JSON.stringify(result)}\n`);
     }
   } else {
-    return {
-      ...entry,
-      contents: await fs.readFile(entry.inputFile),
-    };
+    return await fs.readFile(entry.inputFile);
   }
 };
 
 export const build = async (
   config: Config,
-  handler: (entry: EntryWithContent) => Promise<void>,
+  handler: (entry: Entry, contents: Contents) => Promise<void>,
 ) => {
   consola.info("Crawling", config.base);
 
@@ -87,8 +71,8 @@ export const build = async (
   return pMap(
     files,
     async (entry) => {
-      const entryWithContent = await getEntryContent(config, entry);
-      return handler(entryWithContent);
+      const contents = await getContents(config, entry);
+      return handler(entry, contents);
     },
     { concurrency: config.dynamic.concurrency },
   );
