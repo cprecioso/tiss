@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/cprecioso/tiss/compare/v1.0.0...v1.0.1) (2024-11-17)
+
+
+### Bug Fixes
+
+* add publish metadata ([a408030](https://github.com/cprecioso/tiss/commit/a408030f37231d3f51c8284e416c57a50ed1ece0))
+
 ## 1.0.0 (2024-11-17)
 
 
