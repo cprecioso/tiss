@@ -16,7 +16,7 @@ export const makeConfigSchema = ({ root }: { root: string }) => {
     z.string().transform((path) => pathUtils.resolve(root, path)),
   ]);
 
-  const matcherFn = z.function().args(z.string()).returns(z.boolean());
+  const matcherFn = z.function(z.tuple([z.string()]), z.boolean());
 
   const matcherLike = z
     .union([
@@ -48,16 +48,12 @@ export const makeConfigSchema = ({ root }: { root: string }) => {
       dynamic: z
         .object({
           transformName: z
-            .function()
-            .args(z.string())
-            .returns(z.string())
+            .function(z.tuple([z.string()]), z.string())
             .default(
               () => (path: string) => path.slice(0, path.lastIndexOf(".")),
             ),
           importer: z
-            .function()
-            .args(z.string())
-            .returns(z.promise(z.unknown()))
+            .function(z.tuple([z.string()]), z.promise(z.unknown()))
             .default(() => {
               const jiti = createJiti(import.meta.url);
               return (path: string) => jiti.import(path, { default: true });
