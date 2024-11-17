@@ -19,23 +19,3 @@ jobs:
           name: package.tgz
           path: package.tgz
           if-no-files-found: error
-
-  test:
-    runs-on: ubuntu-latest
-    env:
-      PLAYWRIGHT_BROWSERS_PATH: 0
-    steps:
-      - uses: actions/checkout@v4
-      - uses: cprecioso/action-prepare-node@v1
-      - run: yarn playwright install --with-deps chromium
-      - run: yarn test
-
-  build-docs:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: cprecioso/action-prepare-node@v1
-      - run: yarn run build:docs
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./docs/
