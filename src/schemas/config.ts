@@ -3,7 +3,7 @@ import pathUtils from "node:path";
 import pm from "picomatch";
 import { fileURLToPath } from "url";
 import * as z from "zod";
-import { maybeArray } from "../util/zod";
+import { maybeArray, maybePromise } from "../util/zod";
 
 export const makeConfigSchema = ({ root }: { root: string }) => {
   const pathLike = z.union([
@@ -53,7 +53,7 @@ export const makeConfigSchema = ({ root }: { root: string }) => {
               () => (path: string) => path.slice(0, path.lastIndexOf(".")),
             ),
           importer: z
-            .function(z.tuple([z.string()]), z.promise(z.unknown()))
+            .function(z.tuple([z.string()]), maybePromise(z.unknown()))
             .default(() => {
               const jiti = createJiti(import.meta.url);
               return (path: string) => jiti.import(path, { default: true });

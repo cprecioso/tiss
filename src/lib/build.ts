@@ -4,7 +4,7 @@ import { createReadStream } from "node:fs";
 import pathUtils from "node:path";
 import pMap from "p-map";
 import { Config } from "../schemas/config";
-import { isSomeBuffer, toNodeBuffer } from "../util/buf";
+import { handlerResultSchema, handlerSchema } from "../schemas/handler";
 
 export interface Entry {
   path: string;
@@ -45,13 +45,13 @@ export const getContents = async (
   consola.info("Processing file", entry.path);
 
   if (entry.isDynamic) {
-    const handler = await config.dynamic.importer(entry.inputFile);
+    const rawHandler = await config.dynamic.importer(entry.inputFile);
+    const handler = await handlerSchema.parseAsync(rawHandler);
 
-    const result = typeof handler === "function" ? await handler() : handler;
+    const rawResult = await handler();
+    const result = await handlerResultSchema.parseAsync(rawResult);
 
-    if (typeof result === "string") return Buffer.from(result);
-    else if (isSomeBuffer(result)) return toNodeBuffer(result);
-    else return Buffer.from(`${JSON.stringify(result)}\n`);
+    return result;
   } else {
     return createReadStream(entry.inputFile);
   }
