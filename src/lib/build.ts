@@ -65,7 +65,7 @@ export const getEntryContent = async (
     } else {
       return {
         ...entry,
-        contents: new TextEncoder().encode(JSON.stringify(result) + "\n"),
+        contents: new TextEncoder().encode(`${JSON.stringify(result)}\n`),
       };
     }
   } else {
