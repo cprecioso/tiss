@@ -30,65 +30,67 @@ export const makeConfigSchema = ({ root }: { root: string }) => {
     ])
     .pipe(matcherFn);
 
-  return z.object({
-    base: pathLike.default("./src"),
+  return z
+    .object({
+      base: pathLike.default("./src"),
 
-    input: z
-      .object({
-        include: matcherLike.default(["./**/*"]),
-        exclude: matcherLike.default([]),
-        isDynamic: matcherLike.default([
-          "**/*.ts",
-          "**/*.js",
-          "**/*.tsx",
-          "**/*.jsx",
-        ]),
-      })
-      .default({}),
+      input: z
+        .object({
+          include: matcherLike.default(["./**/*"]),
+          exclude: matcherLike.default([]),
+          isDynamic: matcherLike.default([
+            "**/*.ts",
+            "**/*.js",
+            "**/*.tsx",
+            "**/*.jsx",
+          ]),
+        })
+        .default({}),
 
-    dynamic: z
-      .object({
-        transformName: z
-          .function()
-          .args(z.string())
-          .returns(z.string())
-          .default(
-            () => (path: string) => path.slice(0, path.lastIndexOf(".")),
-          ),
-        importer: z
-          .function()
-          .args(z.string())
-          .returns(z.promise(z.unknown()))
-          .default(() => {
-            const jiti = createJiti(import.meta.url);
-            return (path: string) => jiti.import(path, { default: true });
-          }),
-        concurrency: z.number().int().positive().gt(0).default(4),
-      })
-      .default({}),
+      dynamic: z
+        .object({
+          transformName: z
+            .function()
+            .args(z.string())
+            .returns(z.string())
+            .default(
+              () => (path: string) => path.slice(0, path.lastIndexOf(".")),
+            ),
+          importer: z
+            .function()
+            .args(z.string())
+            .returns(z.promise(z.unknown()))
+            .default(() => {
+              const jiti = createJiti(import.meta.url);
+              return (path: string) => jiti.import(path, { default: true });
+            }),
+          concurrency: z.number().int().positive().gt(0).default(4),
+        })
+        .default({}),
 
-    build: z
-      .object({
-        outDir: pathLike.default("./public"),
-        clean: z.boolean().default(false),
-      })
-      .default({}),
+      build: z
+        .object({
+          outDir: pathLike.default("./public"),
+          clean: z.boolean().default(false),
+        })
+        .default({}),
 
-    archive: z
-      .object({
-        format: z.enum(["zip"]).default("zip"),
-        outFile: pathLike.default("./archive.zip"),
-      })
-      .default({}),
+      archive: z
+        .object({
+          format: z.enum(["zip"]).default("zip"),
+          outFile: pathLike.default("./archive.zip"),
+        })
+        .default({}),
 
-    dev: z
-      .object({
-        port: z.number().default(2387),
-        hostname: z.string().default("localhost"),
-        indexFiles: z.string().array().default(["index.html", "index.htm"]),
-      })
-      .default({}),
-  });
+      dev: z
+        .object({
+          port: z.number().default(2387),
+          hostname: z.string().default("localhost"),
+          indexFiles: z.string().array().default(["index.html", "index.htm"]),
+        })
+        .default({}),
+    })
+    .default({});
 };
 
 type ConfigSchema = ReturnType<typeof makeConfigSchema>;
