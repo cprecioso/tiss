@@ -12,10 +12,7 @@ export const maybeArray = <S extends z.ZodTypeAny>(schema: S) =>
   z.union([z.array(schema), schema.transform<z.output<S>[]>((v) => [v])]);
 
 export const maybePromise = <S extends z.ZodTypeAny>(schema: S) =>
-  z.union([
-    z.promise(schema),
-    schema.transform<Promise<z.output<S>>>((v) => Promise.resolve(v)),
-  ]);
+  z.union([z.promise(schema), schema]);
 
 export const maybeThunk = <S extends z.ZodTypeAny>(schema: S) =>
   z.union([
