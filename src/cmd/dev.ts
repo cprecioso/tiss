@@ -2,7 +2,7 @@ import { Command } from "clipanion";
 import consola from "consola";
 import { lookup as lookupMimeType } from "mrmime";
 import { createServer } from "node:http";
-import { parsePath as parseUrlPath } from "ufo";
+import { joinURL, parsePath as parseUrlPath } from "ufo";
 import { findEntries, getEntryContent } from "../lib/build";
 import { BaseActionCommand } from "./_base";
 
@@ -25,7 +25,16 @@ export class DevCommand extends BaseActionCommand {
     const server = createServer(async (req, res) => {
       const { pathname } = parseUrlPath(req.url);
 
-      const entry = entriesByPath.get(pathname);
+      let entry = entriesByPath.get(pathname);
+
+      if (!entry) {
+        for (const indexFile of config.dev.indexFiles) {
+          const possiblePath = joinURL(pathname, `/${indexFile}`);
+          entry = entriesByPath.get(possiblePath);
+          if (entry) break;
+        }
+      }
+
       if (!entry) {
         res.statusCode = 404;
         res.end("Not Found");

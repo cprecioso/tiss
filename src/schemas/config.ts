@@ -84,6 +84,7 @@ export const makeConfigSchema = ({ root }: { root: string }) => {
       .object({
         port: z.number().default(2387),
         hostname: z.string().default("localhost"),
+        indexFiles: z.string().array().default(["index.html", "index.htm"]),
       })
       .default({}),
   });
