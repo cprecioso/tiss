@@ -1,3 +1,5 @@
+import * as z from "zod";
+
 type SomeBuffer = Buffer | ArrayBuffer | SharedArrayBuffer | ArrayBufferView;
 
 export const isSomeBuffer = (v: unknown): v is SomeBuffer =>
@@ -5,6 +7,8 @@ export const isSomeBuffer = (v: unknown): v is SomeBuffer =>
   v instanceof ArrayBuffer ||
   v instanceof SharedArrayBuffer ||
   ArrayBuffer.isView(v);
+
+export const someBufferSchema = z.custom<SomeBuffer>(isSomeBuffer);
 
 export const toNodeBuffer = (buf: SomeBuffer): Buffer => {
   if (Buffer.isBuffer(buf)) return buf;

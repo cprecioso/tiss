@@ -1698,6 +1698,7 @@ __metadata:
     prettier-plugin-sh: "npm:^0.14.0"
     semver: "npm:^7.6.3"
     tsup: "npm:^8.3.5"
+    type-fest: "npm:^4.27.0"
     typescript: "npm:^5.6.3"
     ufo: "npm:^1.5.4"
     yazl: "npm:^3.3.0"
@@ -1785,6 +1786,13 @@ __metadata:
   version: 3.14.0
   resolution: "typanion@npm:3.14.0"
   checksum: 10c0/8b03b19844e6955bfd906c31dc781bae6d7f1fb3ce4fe24b7501557013d4889ae5cefe671dafe98d87ead0adceb8afcb8bc16df7dc0bd2b7331bac96f3a7cae2
+  languageName: node
+  linkType: hard
+
+"type-fest@npm:^4.27.0":
+  version: 4.27.0
+  resolution: "type-fest@npm:4.27.0"
+  checksum: 10c0/30c8ebe1219725021f5b5006081bd828c4e915de0de65e9a87065f566a96ece706846b2c874ac04c0dcfdfe6b4ae47ad15d3285c9aab162cb79c026dfb2e7556
   languageName: node
   linkType: hard
 

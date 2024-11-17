@@ -3,9 +3,7 @@ import pathUtils from "node:path";
 import pm from "picomatch";
 import { fileURLToPath } from "url";
 import * as z from "zod";
-
-const valueOrArray = <S extends z.ZodTypeAny>(schema: S) =>
-  z.union([z.array(schema), schema]);
+import { maybeArray } from "../util/zod";
 
 export const makeConfigSchema = ({ root }: { root: string }) => {
   const pathLike = z.union([
@@ -22,7 +20,7 @@ export const makeConfigSchema = ({ root }: { root: string }) => {
 
   const matcherLike = z
     .union([
-      valueOrArray(z.string()).transform((globs) => pm(globs, { cwd: root })),
+      maybeArray(z.string()).transform((globs) => pm(globs, { cwd: root })),
       z
         .instanceof(RegExp)
         .transform((regex) => (str: string) => regex.test(str)),
